@@ -5,8 +5,8 @@ title: about
 
 <h1>about</h1>
 
-<p>i build low-level systems, security tooling, and infrastructure automation. linux internals, network protocols, kernel interfaces &mdash; the stuff between the hardware and the application.</p>
+<p>offensive security operator and infrastructure hacker. i specialize in penetration testing, vulnerability research, and red team tooling &mdash; finding the gaps before the bad guys do.</p>
 
-<p>my home lab runs isolated KVM networks, QEMU virtual machines, and container clusters. every config is reproducible, every deployment is automated, everything is logged.</p>
+<p>my lab runs isolated KVM networks with vulnerable targets, C2 infrastructure, and automated exploitation pipelines. every assessment is methodical, every finding is documented, everything is reproducible.</p>
 
-<p>when i'm not hardening boxes or breaking things in lab environments, i'm writing C, Go, Python, or Rust &mdash; depending on what needs to get done.</p>
+<p>when i'm not pwning boxes or writing CVEs, i'm building the next generation of security automation tooling &mdash; because good defenders need better tools than attackers do.</p>
