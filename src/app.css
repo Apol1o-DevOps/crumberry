@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: ui-monospace, 'Cascadia Code', 'Fira Code', 'Source Code Pro', Menlo, monospace;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  background: #08080c;
+  color: #c0c4cc;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #181a1f;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  color: #e0e4ec;
+  text-decoration: none;
+  letter-spacing: -0.3px;
+}
+
+.nav-links a {
+  color: #6b7280;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 16px;
+  transition: color 0.15s;
+}
+
+.nav-links a:hover {
+  color: #e0e4ec;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #e8ecf4;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+}
+
+a {
+  color: #7aa2f7;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+a:hover {
+  color: #b4ccff;
+}
+
+footer {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #181a1f;
+  color: #3a3f48;
+  font-size: 14px;
+  text-align: center;
+}
