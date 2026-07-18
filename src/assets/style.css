@@ -1,0 +1,63 @@
+body {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #21262d;
+}
+
+nav > a {
+  font-weight: 700;
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.nav-links a {
+  color: #8b949e;
+  text-decoration: none;
+  margin-left: 1.25rem;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: #58a6ff;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f0f6fc;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  color: #8b949e;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 14px;
+}
+
+a {
+  color: #58a6ff;
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #21262d;
+  color: #484f58;
+  font-size: 13px;
+  text-align: center;
+}

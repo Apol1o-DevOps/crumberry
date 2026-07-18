@@ -1,0 +1,13 @@
+{
+  "name": "apollos-dev-site",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --serve",
+    "deploy": "npx @11ty/eleventy && npx gh-pages -d _site"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}
