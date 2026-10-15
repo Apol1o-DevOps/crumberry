@@ -3,16 +3,20 @@
   let { children } = $props();
 </script>
 
-<nav>
-  <a href="/" class="logo">crumberry</a>
-  <div class="nav-links">
-    <a href="/">home</a>
-    <a href="/about">about</a>
-  </div>
-</nav>
+<div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
-<main>
-  {@render children()}
-</main>
+<div class="shell">
+  <header class="bar bar--top">
+    <span class="brand">crumberry</span>
+    <span><i class="live"></i>signal steady</span>
+  </header>
 
-<footer>crumberry &middot; 2026</footer>
+  <main>
+    {@render children()}
+  </main>
+
+  <footer class="bar bar--bottom">
+    <span>no scripts &middot; no trackers &middot; no cookies</span>
+    <span>mmxxvi</span>
+  </footer>
+</div>

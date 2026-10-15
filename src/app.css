@@ -1,85 +1,319 @@
-* {
+/* crumberry — one page, hairlines, right angles. no webfonts, no scripts needed to read it. */
+
+:root {
+  --bg: #08090a;
+  --fg: #eceff3;
+  --fg-2: #a8afb7;
+  --fg-3: #757c85;
+  --line: #1b1f23;
+  --line-2: #2a2f35;
+  --accent: #7ee2b8;
+
+  --mono: ui-monospace, SFMono-Regular, 'SF Mono', 'JetBrains Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
+
+  --pad-x: clamp(16px, 3vw, 44px);
+  --pad-y: clamp(16px, 2.4vw, 34px);
+}
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border-radius: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: ui-monospace, 'Cascadia Code', 'Fira Code', 'Source Code Pro', Menlo, monospace;
-  font-size: 18px;
-  line-height: 1.7;
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-  background: #08080c;
-  color: #c0c4cc;
+  background: var(--bg);
+  color: var(--fg-2);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid #181a1f;
-}
-
-.logo {
-  font-weight: 700;
-  font-size: 20px;
-  color: #e0e4ec;
-  text-decoration: none;
-  letter-spacing: -0.3px;
-}
-
-.nav-links a {
-  color: #6b7280;
-  text-decoration: none;
-  margin-left: 1.5rem;
-  font-size: 16px;
-  transition: color 0.15s;
-}
-
-.nav-links a:hover {
-  color: #e0e4ec;
-}
-
-h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: #e8ecf4;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-}
-
-.subtitle {
-  color: #6b7280;
-  font-size: 16px;
-  margin-top: 0;
-  margin-bottom: 2rem;
-}
-
-p {
-  margin-bottom: 1.25rem;
+::selection {
+  background: var(--accent);
+  color: var(--bg);
 }
 
 a {
-  color: #7aa2f7;
+  color: inherit;
   text-decoration: none;
-  transition: color 0.15s;
 }
 
-a:hover {
-  color: #b4ccff;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
-footer {
-  margin-top: 5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #181a1f;
-  color: #3a3f48;
-  font-size: 14px;
-  text-align: center;
+/* viewport frame + registration ticks */
+
+.frame {
+  position: fixed;
+  inset: 0;
+  border: 1px solid var(--line);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.frame i {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--accent);
+  opacity: 0.6;
+}
+
+.frame i:nth-child(1) {
+  top: -1px;
+  left: -1px;
+  border-right: 0;
+  border-bottom: 0;
+}
+.frame i:nth-child(2) {
+  top: -1px;
+  right: -1px;
+  border-left: 0;
+  border-bottom: 0;
+}
+.frame i:nth-child(3) {
+  bottom: -1px;
+  left: -1px;
+  border-right: 0;
+  border-top: 0;
+}
+.frame i:nth-child(4) {
+  bottom: -1px;
+  right: -1px;
+  border-left: 0;
+  border-top: 0;
+}
+
+/* shell */
+
+.shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: var(--pad-y) var(--pad-x);
+}
+
+.shell > * {
+  min-width: 0;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  flex-wrap: wrap;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.bar--top {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+}
+
+.bar--bottom {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.brand {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.live {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 9px;
+  background: var(--accent);
+  vertical-align: middle;
+  animation: pulse 2.6s ease-in-out infinite;
+}
+
+/* content */
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(20px, 3.4vw, 36px);
+  padding-block: clamp(28px, 6vh, 72px);
+}
+
+.ascii {
+  font-family: var(--mono);
+  font-size: clamp(8px, calc((100vw - 4rem) / 56), 14px);
+  line-height: 1.08;
+  letter-spacing: 0;
+  color: var(--fg);
+  white-space: pre;
+  overflow-x: hidden;
+}
+
+.tag {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  color: var(--fg-3);
+}
+
+.lede {
+  max-width: 62ch;
+  color: var(--fg-2);
+}
+
+.lede em {
+  font-style: normal;
+  color: var(--fg);
+}
+
+/* three-cell strip, hairline divided */
+
+.strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--line);
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 15px 17px 16px;
+  border-left: 1px solid var(--line);
+}
+
+.cell:first-child {
+  border-left: 0;
+}
+
+.cell-h {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.cell-h b {
+  font-weight: 400;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.cell-h span {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+
+.cell p {
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: var(--fg-3);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 26px;
+  font-size: 12px;
+}
+
+.links a {
+  color: var(--fg-2);
+  border-bottom: 1px solid var(--line-2);
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.links a::before {
+  content: './';
+  color: var(--fg-3);
+}
+
+.links a:hover,
+.links a:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.links a:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.62em;
+  margin-left: 2px;
+  color: var(--accent);
+  animation: blink 1.15s steps(1, end) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .strip {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cell {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .cell:first-child {
+    border-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live,
+  .cursor {
+    animation: none;
+  }
 }
